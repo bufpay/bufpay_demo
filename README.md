@@ -1,4 +1,4 @@
-### bufpay.com 独立开发者 个人即时到账 支付接口 Demo
+### bufpay 独立开发者 个人即时到账 支付接口 Demo
 
 目前有 Python 和 PHP 版本，欢迎大家 PR 😆
 
