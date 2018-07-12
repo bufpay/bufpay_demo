@@ -15,6 +15,8 @@ BufPay 原理是通过在 Android 手机上安装 BufPay App 检测微信和支�
 - BufPay 收到开发者支付请求后会 调度分配开发者的支付宝/微信 收款二维码显示到支付页面，给用户扫描支付。
 - 用户支付后，开发者安装 BufPay App 的 Android 手机（已经登陆开发者收款支付宝、微信App）会收到到账通知，BufPay App 会检测到这个通知，并且回调通知。
 - 最终 BufPay 服务器会回调开发者的服务器，告诉开发者订单已经支付，开发者根据自己的逻辑为客户开通服务。
+![BufPay 个人收款支付时序图](https://upload-images.jianshu.io/upload_images/626292-fe1f3ad27b7ad23f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ## BufPay 支付具体接入步骤
 - [注册 BufPay 账号](https://bufpay.com/main)，充值开通套餐（也可以等产品上线再充值）
