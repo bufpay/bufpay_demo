@@ -35,21 +35,21 @@
             'name' => '内容订阅一年期',
             'pay_type' => 'wechat',
             'price' => '50.00',
-            'order_id' => '102',
+            'order_id' => '999',
             'order_uid' => 'hi@sideidea.com',
             'notify_url' => 'http://sideidea.com/bufpay_notify',
-            'return_url' => 'http://sideidea.com',
-            'sign' => sign([
-                '内容订阅一年期',
-                'wechat',
-                '50.00',
-                '102',
-                'hi@sideidea.com',
-                'http://sideidea.com/bufpay_notify',
-                'http://sideidea.com',
-                'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'  #app secret
-            ])
+            'return_url' => 'http://sideidea.com'
         );
+        $pay_data['sign'] = sign([
+            $pay_data['name'],
+            $pay_data['pay_type'],
+            $pay_data['price'],
+            $pay_data['order_id'],
+            $pay_data['order_uid'],
+            $pay_data['notify_url'],
+            $pay_data['return_url'],
+            'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'  #app secret, 这里需要修改为自己的
+        ]);
         return json_decode(post('https://bufpay.com/api/pay/2?format=json', $pay_data));
     };
 
