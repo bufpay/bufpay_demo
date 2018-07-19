@@ -27,28 +27,26 @@ def pay():
     #    </body>
     #</html>
 
-    resp = requests.post(
-        'https://bufpay.com/api/pay/2?format=json',
-        data={
-            'name': u'内容订阅一年期',
-            'pay_type': 'wechat',
-            'price': '50.00',
-            'order_id': '102',
-            'order_uid': 'hi@sideidea.com',
-            'notify_url': 'http://sideidea.com/bufpay_notify',
-            'return_url': 'http://sideidea.com',
-            'sign': sign(
-                u'内容订阅一年期',
-                'wechat',
-                '50.00',
-                '102',
-                'hi@sideidea.com',
-                'http://sideidea.com/bufpay_notify',
-                'http://sideidea.com',
-                'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'  #app secret
-            )
-        }
+    pay_data = {
+        'name': u'内容订阅一年期',
+        'pay_type': 'wechat',
+        'price': '50.00',
+        'order_id': '888',
+        'order_uid': 'hi@sideidea.com',
+        'notify_url': 'http://sideidea.com/bufpay_notify',
+        'return_url': 'http://sideidea.com'
+    }
+    pay_data['sign'] = sign(
+        pay_data['name'],
+        pay_data['pay_type'],
+        pay_data['price'],
+        pay_data['order_id'],
+        pay_data['order_uid'],
+        pay_data['notify_url'],
+        pay_data['return_url'],
+        'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'  #app secret, 这里需要修改为自己的
     )
+    resp = requests.post('https://bufpay.com/api/pay/2?format=json', data=pay_data)
     return json.loads(resp.text)
 
 
