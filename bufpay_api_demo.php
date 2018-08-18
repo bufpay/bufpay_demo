@@ -4,7 +4,7 @@
 
     #注意: 使用之前先到 bufpay 后台上传 *微信、支付宝 App* 生成的 收款二维码
 
-    $price = _GET('price'); # 获取充值金额
+    $price = $_GET('price'); # 获取充值金额
     $order_id = '101';      # 自己创建的本地订单号
     $order_uid = 'hello@hello.com';  # 订单对应的用户id
     $name = 'vip year fee';  # 订单商品名称
