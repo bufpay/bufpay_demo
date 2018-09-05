@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="author" content="bufpay.com">
+        <title>BufPay.com PHP Demo</title>
+    <head>
+    <body>
+        <div class="box">
+            <input id="price" min=0 type="number" value="输入金额" palceholder="0.01" value="0.01" /> <button onclick="pay()">BufPay 支付</button>
+        </div>
+        <script>
+            var pay = function () {
+                var price = document.getElementById("price").value;
+                if(parseFloat(price)<=0) return false;
+                location.href = "/bufpay_api_demo.php?price=" + price;
+            };
+        </script>
+    </body>
+</html>
