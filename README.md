@@ -32,6 +32,10 @@ BufPay 原理是通过在 Android 手机上安装 BufPay App 检测微信和支�
 - [PHP Demo](https://bufpay.com/htdocs/bufpay_api_demo.php.zip)
 - 欢迎为 BufPay 增加其他语言的 Demo
 
+## 多手机收款配置
+[bufpay 支持无上限多个手机同时并行收款](https://bufpay.com/page.html#multi)
+![bufpay多手机并行收款](https://bufpay.oss-cn-shenzhen.aliyuncs.com/help/client_conf.png)
+
 ## 在线体验支付流程
 [登陆 BufPay 后台可以体验 BufPay 支付流程](https://bufpay.com/main)
 
