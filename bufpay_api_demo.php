@@ -2,33 +2,24 @@
 
 <?php
 
-    #注意: 使用之前先到 bufpay 后台上传 *微信、支付宝 App* 生成的 收款二维码
+    #注意: 使用之前先到 bufpay 后台上传微信、支付宝App生成的收款二维码
 
     $price = $_GET('price'); # 获取充值金额
-    $order_id = '101';      # 自己创建的本地订单号
+    $order_id = '101';       # 自己创建的本地订单号
     $order_uid = 'hello@hello.com';  # 订单对应的用户id
     $name = 'vip year fee';  # 订单商品名称
     $pay_type = 'wechat';    # 付款方式
     $notify_url = 'http://xxxx.com/notify_url.php';   # 回调通知地址
     $return_url = 'http://xxxx.com/return_url.php';   # 支付成功页面跳转地址
 
-    $secret = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';     # app secret, 这里需要修改为自己的，在个人中心配置页面查看
+    $secret = 'your app secret';     # app secret, 在个人中心配置页面查看
     $api_url = 'https://bufpay.com/api/pay/XXX';   # 付款请求接口，在个人中心配置页面查看
 
     function sign($data_arr) {
         return md5(join('',$data_arr));
     };
 
-    $sign = sign([
-        $name,
-        $pay_type,
-        $price,
-        $order_id,
-        $order_uid,
-        $notify_url,
-        $return_url,
-        $secret
-    ]);
+    $sign = sign(array($name, $pay_type, $price, $order_id, $order_uid, $notify_url, $return_url, $secret));
 
 
 echo '<html>
@@ -47,5 +38,4 @@ echo '<html>
           <script>document.getElementById("post_data").submit();</script>
       </body>
       </html>';
-
 ?>
